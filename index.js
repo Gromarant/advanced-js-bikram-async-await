@@ -65,3 +65,19 @@ const getRandomPokemonImage = async () => {
       console.log(`ERROR: ${error.stack}`);
   }
 }
+
+/* Ejercicios con Rick and Morty
+Usando la api de Rick and Morty https://rickandmortyapi.com/ y sólo async/await:
+
+Ejercicio 7.- Declara una función getRandomCharacter que retorne un personaje aleatorio.*/
+const getRandomCharacter = async () => {
+  try {
+    let idNumber = Math.floor(Math.random()*20);
+    let response = await fetch(`https://rickandmortyapi.com/api/character/${idNumber}`);
+    let data = await response.json();
+    return data;
+  }
+  catch (error) {
+    console.log(`ERROR: ${error.stack}`);
+  }
+}
