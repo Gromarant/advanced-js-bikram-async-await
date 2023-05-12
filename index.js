@@ -52,3 +52,16 @@ const getRandomDogImage = async () => {
       console.log(`ERROR: ${error.stack}`);
   }
 }
+
+/* Ejercicio 5.- Declara una función getRandomPokemonImage que retorne la url de la imagen de un pokemon aleatorio.*/
+const getRandomPokemonImage = async () => {
+  try {
+    let idNum = Math.floor(Math.random()*135)
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${idNum}/`);
+    let data = await response.json();
+    return data.sprites.front_default;
+  }
+  catch (error) {
+      console.log(`ERROR: ${error.stack}`);
+  }
+}
