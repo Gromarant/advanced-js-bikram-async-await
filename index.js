@@ -29,3 +29,12 @@ const getImageAndName = async () => {
       console.log(`ERROR: ${error.stack}`);
   }
 }
+
+/* Ejercicio 3.- Declara una funcion printImageAndName que retorne el string necesario para pintar la imagen y el nombre del pokemon en el DOM de la siguiente forma */
+const printImageAndName = () => {
+  let obj = getImageAndName();
+  return `<section>
+            <img src="${obj.img}" alt="${obj.name}">
+            <h1>${obj.name}</h1>
+          </section>`
+}
