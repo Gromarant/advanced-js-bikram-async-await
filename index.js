@@ -81,3 +81,21 @@ const getRandomCharacter = async () => {
     console.log(`ERROR: ${error.stack}`);
   }
 }
+
+/* Ejercicio 8.- Declara una función getRandomCharacterInfo que retorne de un personaje su imagen, nombre, episodios en los que aparece y el nombre del primer episodio en el que aparece + fecha de estreno, tendrás que hacer otro fetch para llegar a los ultimos datos. Formato de retorno => (return {img, name, episodes, firstEpisode, dateEpisode}) */
+const getRandomCharacterInfo = async () => {
+  try {
+    let idNumber = Math.floor(Math.random()*20);
+    let response = await fetch(`https://rickandmortyapi.com/api/character/${idNumber}`);
+    let data = await response.json();
+    let {name, image:img, episode:episodes} = data;
+    
+    let episodeOne = await fetch(`${episodes[0]}`);
+    let episodeData = await episodeOne.json();
+    let {name:firstEpisode, air_date:dateEpisode} = episodeData;
+    return {img, name, episodes, firstEpisode, dateEpisode}
+  }
+  catch {
+    console.log(`ERROR: ${error.stack}`);
+  }
+}
