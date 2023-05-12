@@ -38,3 +38,17 @@ const printImageAndName = () => {
             <h1>${obj.name}</h1>
           </section>`
 }
+
+/* Ejercicios Batalla entre Pokemon y perritos 
+Recordatorio, la API de perritos era 'https://dog.ceo/dog-api/'
+Ejercicio 4.- Declara una función getRandomDogImage que retorne la url de la imagen de un perro aleatorio*/
+const getRandomDogImage = async () => {
+  try {
+    let response = await fetch(`https://dog.ceo/api/breeds/image/random`);
+    let data = await response.json()
+    return data.message;
+  }
+  catch (error) {
+      console.log(`ERROR: ${error.stack}`);
+  }
+}
