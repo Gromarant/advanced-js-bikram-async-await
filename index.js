@@ -66,6 +66,22 @@ const getRandomPokemonImage = async () => {
   }
 }
 
+// /* Ejercicio 6.- Declara una función printPugVsPikachu que pinte la batalla entre "Pug" y "Pikachu" (no se testea) */
+// const printPugVsPikachu = async () => {
+//   try {
+//     let resPug = await fetch(`https://dog.ceo/api/breed/pug/images/random`);
+//     let pugData = await resPug.json();
+//     document.querySelector('.exercise6').innerHTML += `<img class="pugImg" src="${pugData.message}" alt="Pug">`;
+    
+//     let resPokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`);
+//     let pokemonData = await resPokemon.json();
+//     document.querySelector('.exercise6').innerHTML += `<img class="pikachuImg" src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}">`;
+//   }
+//   catch {
+//     console.log(`ERROR: ${error.stack}`);
+//   }
+// }
+// printPugVsPikachu();
 /* Ejercicios con Rick and Morty
 Usando la api de Rick and Morty https://rickandmortyapi.com/ y sólo async/await:
 
@@ -99,3 +115,20 @@ const getRandomCharacterInfo = async () => {
     console.log(`ERROR: ${error.stack}`);
   }
 }
+
+/* Ejercicio 9.- Pinta los anteriores datos en el DOM (no se testea) */
+const setCharacterCard = async () => {
+  const dataCharacter = await getRandomCharacterInfo();
+  console.log(dataCharacter)
+  document.querySelector('section.exercise9').innerHTML += `<article>
+                                                              <img src="${dataCharacter.img}" alt="${dataCharacter.name}">
+                                                              <h2>${dataCharacter.name}</h2>
+                                                              <h3>Episodios en los que aparece</h3>
+                                                              <p>${dataCharacter.episodes}</p>
+                                                              <h3>Primer episodio en el que aparece</h3>
+                                                              <p>${dataCharacter.firstEpisode}</p>
+                                                              <h3>Fecha de estreno</h3>
+                                                              <p>${dataCharacter.dateEpisode}</p>
+                                                            </article>`
+}
+setCharacterCard();
