@@ -1,6 +1,5 @@
 /* Utilizando la api de Pokemon https://pokeapi.co/ y usando sólo async/await:
 Antes de empezar, lee la documentación de la API para comprender como funcionan los endpoints
-
 Ejercicio 1.- Declara una función getRandomPokemon que retorne un pokemon aleatorio */
 const getRandomPokemon = async () => {
   try {
@@ -120,7 +119,6 @@ const getRandomCharacterInfo = async () => {
 /* Ejercicio 9.- Pinta los anteriores datos en el DOM (no se testea) */
 const setCharacterCard = async () => {
   const dataCharacter = await getRandomCharacterInfo();
-  console.log(dataCharacter)
   document.querySelector('section.exercise9').innerHTML += `<article>
                                                               <img src="${dataCharacter.img}" alt="${dataCharacter.name}">
                                                               <h2>${dataCharacter.name}</h2>
